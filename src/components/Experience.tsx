@@ -35,7 +35,7 @@ const ROLES: Role[] = [
 export default function Experience() {
   return (
     <section id="experience" className="bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:px-8 md:py-28">
         {/* Section Heading */}
         <p className="mb-2 text-[11px] font-medium tracking-[0.08em] text-primary">
           EXPERIENCE

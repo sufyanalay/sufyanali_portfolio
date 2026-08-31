@@ -1,30 +1,15 @@
 const CATEGORIES = [
-  {
-    label: "Healthcare",
-    desc: "Provider directories, appointments",
-  },
-  {
-    label: "Gaming",
-    desc: "Wallets, transaction integrity",
-  },
-  {
-    label: "Enterprise",
-    desc: "Leasing, POS, distribution",
-  },
-  {
-    label: "AI",
-    desc: "Assistants in real workflows",
-  },
-  {
-    label: "Automation",
-    desc: "Replacing manual registers",
-  },
+  { label: "Enterprise", desc: "Leasing, POS, distribution ERP" },
+  { label: "Gaming", desc: "Wallets, transaction integrity" },
+  { label: "AI", desc: "Assistants in real workflows" },
+  { label: "SaaS", desc: "Subscriptions, dashboards, billing" },
+  { label: "Web Platforms", desc: "Business sites, catalogs" },
 ];
 
 export default function About() {
   return (
     <section id="about" className="bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:px-8 md:py-28">
         <p className="text-[11px] font-medium tracking-[0.08em] text-primary mb-2">
           ABOUT
         </p>
@@ -51,18 +36,17 @@ export default function About() {
             systems behind them.
           </p>
           <p>
-            My first professional year was spent in the browser shipping
-            React interfaces. Then I moved deeper into the stack: enterprise
-            ASP.NET systems where a rounding error is a financial incident.
-            From there I built full stack products end to end — an
-            influencer marketplace, a realtime casino platform with an
-            airtight wallet ledger, and a subscription SaaS with Stripe
-            billing.
+            My first professional year was spent in enterprise ASP.NET
+            development at NS Solutions — designing SQL Server schemas and
+            shipping leasing, POS and distribution systems where a rounding
+            error is a financial incident.
           </p>
           <p>
-            Today I engineer the backend of Meditour Global, a medical
-            tourism platform connecting patients with doctors and hospitals
-            worldwide.
+            Today I&apos;m a Backend Engineer at Berry Boost Software
+            Solutions, building scalable systems with Node.js, Express.js,
+            TypeScript and MongoDB — REST APIs, authentication and ERP
+            modules with a strong focus on performance and clean
+            architecture.
           </p>
         </div>
 

@@ -6,7 +6,7 @@ type Category = {
 const CATEGORIES: Category[] = [
   { label: "Frontend", items: ["React", "TypeScript", "Tailwind"] },
   { label: "Backend", items: ["Node.js", "Express", "Socket.io"] },
-  { label: ".NET", items: ["ASP.NET", "C#", "JWT Auth"] },
+ { label: ".NET", items: ["ASP.NET", "C#", "Entity Framework"] },
   { label: "Database", items: ["MongoDB", "SQL Server"] },
   { label: "Tools", items: ["Git", "Postman", "Figma"] },
   { label: "Cloud & Deploy", items: ["Vercel", "Render", "Cloudinary"] },
@@ -15,7 +15,7 @@ const CATEGORIES: Category[] = [
 export default function Stack() {
   return (
     <section id="stack" className="bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:px-8 md:py-28">
         <p className="text-[11px] font-medium tracking-[0.08em] text-primary mb-2">
           TECH STACK
         </p>

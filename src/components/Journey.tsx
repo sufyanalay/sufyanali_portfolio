@@ -12,45 +12,35 @@ const MILESTONES: Milestone[] = [
     description: "Began the degree and fell for building software.",
   },
   {
-    year: "2024",
-    title: "Frontend internship",
-    description: "First professional React work at Agile Solution.",
-  },
-  {
     year: "2025",
     title: "Enterprise ASP.NET",
-    description: "Shipped three production ERP systems at NS Solutions.",
-  },
-  {
-    year: "2026",
-    title: "MERN Stack Developer",
-    description: "Full stack product delivery at ThriveGrit Solutions.",
+    description: "Delivered four enterprise systems at NS Solutions.",
   },
   {
     year: "Now",
-    title: "Global healthcare platform",
-    description: "Backend engineering on Meditour Global.",
+    title: "Backend Engineer",
+    description: "Building scalable backend systems at Berry Boost Software Solutions.",
     current: true,
   },
 ];
 
 const STATS = [
-  { value: "11+", label: "Production projects shipped" },
-  { value: "4", label: "Companies delivered for" },
-  { value: "3", label: "Enterprise ERP systems" },
-  { value: "8+", label: "Admin panels built" },
+  { value: "10+", label: "Production projects shipped" },
+  { value: "2", label: "Companies delivered for" },
+  { value: "4", label: "Enterprise systems delivered" },
+  { value: "1+", label: "Years of experience" },
 ];
 
 export default function Journey() {
   return (
     <section id="journey" className="bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:px-8 md:py-28">
         <h2 className="font-heading text-2xl md:text-3xl font-medium text-text-dark mb-14">
-          From first commit to global platform
+          From first commit to production systems
         </h2>
 
         {/* Horizontal roadmap */}
-        <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-5 sm:gap-4 mb-12">
+        <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4 mb-12">
           <div className="absolute left-2 top-2 hidden h-px w-[calc(100%-1rem)] bg-[#FDD9B8] sm:block" />
 
           {MILESTONES.map((m) => (
@@ -68,7 +58,7 @@ export default function Journey() {
               <p className="mt-1 text-[11.5px] font-medium text-text-dark">
                 {m.title}
               </p>
-              <p className="mt-1 text-[10px] leading-relaxed text-text-gray max-w-[160px]">
+              <p className="mt-1 text-[10px] leading-relaxed text-text-gray max-w-[200px]">
                 {m.description}
               </p>
             </div>

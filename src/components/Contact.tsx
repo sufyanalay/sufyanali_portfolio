@@ -14,7 +14,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:px-8 md:py-28">
         <div className="rounded-[20px] bg-[#1E2533] p-8 md:p-12">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {/* Left */}
@@ -49,7 +49,7 @@ export default function Contact() {
 
                 <p className="flex items-center gap-2">
                   <a
-                    href="https://linkedin.com/in/YOUR_USERNAME"
+                    href="https://www.linkedin.com/in/sufyan-ali-24b534299/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-white"
@@ -60,7 +60,7 @@ export default function Contact() {
                   <span>•</span>
 
                   <a
-                    href="https://github.com/YOUR_USERNAME"
+                    href="https://www.linkedin.com/in/sufyan-ali-24b534299/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-white"

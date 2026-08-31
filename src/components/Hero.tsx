@@ -1,6 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const STACK_BADGES = [
+  { label: "MERN Stack", color: "text-text-gray bg-white" },
+  { label: "Backend Engineer", color: "text-text-gray bg-white" },
+  { label: ".NET Core", color: "text-emerald-700 bg-emerald-50" },
+  { label: "TypeScript", color: "text-cyan-700 bg-cyan-50" },
+  { label: "MongoDB", color: "text-violet-700 bg-violet-50" },
+  { label: "SQL Server", color: "text-amber-700 bg-amber-50" },
+];
+
 export default function Hero() {
   return (
     <section
@@ -24,14 +33,20 @@ export default function Hero() {
             SUFYAN ALI
           </h1>
 
-          <p className="mt-3 mb-4 font-heading text-base tracking-[0.05em] text-primary md:text-xl">
+          <p className="mt-3 mb-2 font-heading text-base tracking-[0.05em] text-primary md:text-xl">
             FULL STACK SOFTWARE ENGINEER
+          </p>
+
+          <p className="mb-4 font-mono text-[11.5px] text-text-gray/70 md:text-[12.5px]">
+            {"function buildBackend() { "}
+            <span className="text-primary">returns scalable APIs</span>
+            {" }"}
           </p>
 
           <p className="mx-auto max-w-md text-[13px] leading-relaxed text-text-gray md:mx-0 md:max-w-lg md:text-base">
             Building scalable web applications, enterprise software,
-            healthcare platforms, SaaS products, AI-powered systems,
-            and modern digital experiences.
+            SaaS products, AI-powered systems, and modern digital
+            experiences.
           </p>
 
           {/* Buttons */}
@@ -59,21 +74,14 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Skills */}
+          {/* Stack badges — mix of plain + color-coded */}
           <div className="mt-6 flex flex-wrap justify-center gap-2 md:justify-start">
-            {[
-              "MERN Stack",
-              "Backend Engineer",
-              ".NET Core",
-              "Healthcare",
-              "SaaS",
-              "AI",
-            ].map((skill) => (
+            {STACK_BADGES.map((badge) => (
               <span
-                key={skill}
-                className="rounded-full bg-white px-3 py-1.5 text-[11px] text-text-gray shadow-sm"
+                key={badge.label}
+                className={`rounded-full px-3 py-1.5 text-[11px] shadow-sm ${badge.color}`}
               >
-                {skill}
+                {badge.label}
               </span>
             ))}
           </div>

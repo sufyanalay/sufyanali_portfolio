@@ -13,11 +13,11 @@ const QUICK_LINKS = [
 const SOCIALS = [
   {
     label: "GitHub",
-    href: "https://github.com/engsufyanali",
+    href: "https://github.com/sufyanalay",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/engsufyanali",
+    href: "https://www.linkedin.com/in/sufyan-ali-24b534299/",
   },
   {
     label: "Email",

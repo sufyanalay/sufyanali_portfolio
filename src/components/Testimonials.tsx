@@ -28,7 +28,7 @@ const TESTIMONIALS: Testimonial[] = [
 export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:px-8 md:py-28">
         <p className="text-[11px] font-medium tracking-[0.08em] text-primary mb-2">
           TESTIMONIALS
         </p>
