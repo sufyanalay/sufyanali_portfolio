@@ -1,0 +1,108 @@
+import Link from "next/link";
+import Image from "next/image";
+
+export default function Hero() {
+  return (
+    <section
+      id="home"
+      className="overflow-hidden bg-gradient-to-br from-[#FBEEE6] via-background to-[#E9F2FA] pt-16"
+    >
+      <div className="mx-auto flex max-w-7xl flex-col px-6 md:min-h-[650px] md:flex-row md:items-center md:px-8">
+
+        {/* Left Content */}
+        <div className="order-1 flex-1 pt-10 pb-0 text-center md:order-1 md:py-0 md:text-left">
+          <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-[12px] text-text-gray shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            Available for work · Lahore, Pakistan
+          </span>
+
+          <p className="mb-2 text-[12px] tracking-[0.1em] text-text-gray">
+            HELLO, I&apos;M
+          </p>
+
+          <h1 className="font-heading text-4xl font-medium leading-tight text-text-dark md:text-6xl">
+            SUFYAN ALI
+          </h1>
+
+          <p className="mt-3 mb-4 font-heading text-base tracking-[0.05em] text-primary md:text-xl">
+            FULL STACK SOFTWARE ENGINEER
+          </p>
+
+          <p className="mx-auto max-w-md text-[13px] leading-relaxed text-text-gray md:mx-0 md:max-w-lg md:text-base">
+            Building scalable web applications, enterprise software,
+            healthcare platforms, SaaS products, AI-powered systems,
+            and modern digital experiences.
+          </p>
+
+          {/* Buttons */}
+          <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
+            <Link
+              href="#work"
+              className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+            >
+              View My Work
+            </Link>
+
+            <a
+              href="/resume.pdf"
+              download
+              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-text-dark shadow-sm transition hover:shadow-lg"
+            >
+              Download Resume
+            </a>
+
+            <Link
+              href="#contact"
+              className="rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-text-dark transition hover:bg-gray-50"
+            >
+              Hire Me
+            </Link>
+          </div>
+
+          {/* Skills */}
+          <div className="mt-6 flex flex-wrap justify-center gap-2 md:justify-start">
+            {[
+              "MERN Stack",
+              "Backend Engineer",
+              ".NET Core",
+              "Healthcare",
+              "SaaS",
+              "AI",
+            ].map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full bg-white px-3 py-1.5 text-[11px] text-text-gray shadow-sm"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+
+        {/* Right Image */}
+        <div className="relative order-2 flex w-full flex-1 items-end justify-center pb-0 pt-6 md:justify-end md:py-0">
+
+          {/* Background Glow */}
+          <div className="absolute bottom-0 right-1/2 h-[260px] w-[260px] translate-x-1/2 rounded-full bg-secondary/15 blur-[80px] md:right-10 md:h-[420px] md:w-[420px] md:translate-x-0 md:blur-[100px]" />
+
+          {/* Image */}
+          <div className="relative mx-auto mb-0 h-[320px] w-full max-w-[260px] sm:h-[380px] sm:max-w-[300px] md:h-[650px] md:max-w-[500px]">
+            <Image
+              src="/sufyan4.png"
+              alt="Sufyan Ali"
+              fill
+              priority
+              sizes="(max-width:640px) 260px,
+                     (max-width:768px) 300px,
+                     500px"
+              className="object-contain object-bottom"
+            />
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+}
