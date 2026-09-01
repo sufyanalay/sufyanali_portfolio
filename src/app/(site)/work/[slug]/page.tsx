@@ -1,11 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { PROJECTS } from "@/data/projects";
+import { connectDB } from "@/lib/mongodb";
+import Project from "@/models/Project";
 import ProjectGallery from "@/components/ProjectGallery";
 
-export function generateStaticParams() {
-  return PROJECTS.map((project) => ({ slug: project.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function CaseStudyPage({
   params,
@@ -13,14 +12,17 @@ export default async function CaseStudyPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = PROJECTS.find((p) => p.slug === slug);
+
+  await connectDB();
+  const project = await Project.findOne({ slug }).lean();
 
   if (!project) {
     notFound();
   }
 
-  const currentIndex = PROJECTS.findIndex((p) => p.slug === slug);
-  const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
+  const allProjects = await Project.find().sort({ order: 1, createdAt: -1 }).lean();
+  const currentIndex = allProjects.findIndex((p) => p.slug === slug);
+  const nextProject = allProjects[(currentIndex + 1) % allProjects.length];
 
   return (
     <div className="pt-16 bg-background">
@@ -62,13 +64,15 @@ export default async function CaseStudyPage({
           <div className="rounded-[14px] border border-border bg-surface p-3 col-span-2 sm:col-span-2">
             <p className="text-[9px] text-text-gray">Tech stack</p>
             <p className="text-[11.5px] font-medium text-text-dark">
-              {project.tech.join(", ")}
+              {project.tech?.join(", ")}
             </p>
           </div>
         </div>
 
         {/* Auto-swiping gallery */}
-        <ProjectGallery images={project.images} name={project.name} />
+        {project.images?.length > 0 && (
+          <ProjectGallery images={project.images} name={project.name} />
+        )}
 
         {/* Description */}
         <div className="mt-10">
@@ -76,33 +80,35 @@ export default async function CaseStudyPage({
             Overview
           </h2>
           <div className="space-y-3 text-[13px] leading-relaxed text-text-gray">
-            {project.description.map((para, i) => (
+            {project.description?.map((para: string, i: number) => (
               <p key={i}>{para}</p>
             ))}
           </div>
         </div>
 
         {/* Features */}
-        <div className="mt-10">
-          <h2 className="font-heading text-lg font-medium text-text-dark mb-3">
-            Key features
-          </h2>
-          <ul className="space-y-2">
-            {project.features.map((feature) => (
-              <li
-                key={feature}
-                className="flex items-start gap-2 text-[13px] text-text-gray"
-              >
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {project.features?.length > 0 && (
+          <div className="mt-10">
+            <h2 className="font-heading text-lg font-medium text-text-dark mb-3">
+              Key features
+            </h2>
+            <ul className="space-y-2">
+              {project.features.map((feature: string) => (
+                <li
+                  key={feature}
+                  className="flex items-start gap-2 text-[13px] text-text-gray"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Tech chips */}
         <div className="mt-10 flex flex-wrap gap-2">
-          {project.tech.map((t) => (
+          {project.tech?.map((t: string) => (
             <span
               key={t}
               className="rounded-full bg-[#F1EFE8] px-3 py-1.5 text-[10.5px] text-[#2C2C2A]"
@@ -113,20 +119,22 @@ export default async function CaseStudyPage({
         </div>
 
         {/* Next project nav */}
-        <div className="mt-14 flex items-center justify-between border-t border-border pt-6">
-          <Link
-            href="/#work"
-            className="text-[11px] text-text-gray hover:text-text-dark transition-colors"
-          >
-            ← All projects
-          </Link>
-          <Link
-            href={`/work/${nextProject.slug}`}
-            className="text-[11px] text-text-gray hover:text-text-dark transition-colors"
-          >
-            {nextProject.name} →
-          </Link>
-        </div>
+        {nextProject && (
+          <div className="mt-14 flex items-center justify-between border-t border-border pt-6">
+            <Link
+              href="/#work"
+              className="text-[11px] text-text-gray hover:text-text-dark transition-colors"
+            >
+              ← All projects
+            </Link>
+            <Link
+              href={`/work/${nextProject.slug}`}
+              className="text-[11px] text-text-gray hover:text-text-dark transition-colors"
+            >
+              {nextProject.name} →
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

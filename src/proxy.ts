@@ -4,6 +4,7 @@ import { verifyAdminToken } from "@/lib/auth";
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Login page khud protected nahi honi chahiye
   if (pathname === "/admin/login") {
     return NextResponse.next();
   }
@@ -13,9 +14,7 @@ export async function proxy(request: NextRequest) {
     const isValid = token ? await verifyAdminToken(token) : false;
 
     if (!isValid) {
-      return NextResponse.redirect(
-        new URL("/admin/login", request.url)
-      );
+      return NextResponse.redirect(new URL("/admin/login", request.url));
     }
   }
 
